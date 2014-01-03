@@ -1,4 +1,4 @@
-package org.fossd.cooper;
+package org.ruogu.cooper;
 
 /**
  * Hello world!
