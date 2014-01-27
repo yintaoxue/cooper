@@ -14,40 +14,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.ruogu.cooper.model;
+package org.ruogu.cooper;
 
-import java.util.HashMap;
-import java.util.Map;
+public class Jdk {
+	
+	public static void getClassName() {
+		String className1 = Jdk.class.getName();
+		System.out.println("className1:" + className1);
+		
+		String className2 = new Jdk().getClass().getName();
+		System.out.println("className2:" + className2);
+	}
 
-public class Params {
-	private Map<String, String[]> params = new HashMap<String, String[]>();
-	
-	public Params() {}
-	
-	public Params(Map<String, String[]> params) {
-		this.putAll(params);
+	public static void main(String[] args) {
+		
+		getClassName();
 	}
-	
-	public void put(String key, String value) {
-		params.put(key, new String[]{value});
-	}
-	
-	public void put(String key, String[] values) {
-		params.put(key, values);
-	}
-	
-	public void putAll(Map<String, String[]> params) {
-		if (params == null)
-			return;
-		params.putAll(params);
-	}
-	
-	public String get(String key) {
-		String[] values = params.get(key);
-		return values.length > 0 ? values[0] : null;
-	}
-	
-	public String[] getArray(String key) {
-		return params.get(key);
-	}
+
 }

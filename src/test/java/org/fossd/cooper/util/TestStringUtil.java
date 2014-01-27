@@ -14,40 +14,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.ruogu.cooper.model;
+package org.fossd.cooper.util;
 
-import java.util.HashMap;
-import java.util.Map;
+import org.junit.Assert;
+import org.junit.Test;
+import org.ruogu.cooper.util.StringUtil;
 
-public class Params {
-	private Map<String, String[]> params = new HashMap<String, String[]>();
-	
-	public Params() {}
-	
-	public Params(Map<String, String[]> params) {
-		this.putAll(params);
+public class TestStringUtil {
+
+	@Test
+	public void testRemoveLastFieldSeparator() {
+		StringBuffer sbf = new StringBuffer("a,b,c,");
+		StringUtil.removeLastFieldSeparator(sbf, ",");
+		System.out.println(sbf.toString());
+		Assert.assertEquals(sbf.toString(), "a,b,c");
 	}
-	
-	public void put(String key, String value) {
-		params.put(key, new String[]{value});
-	}
-	
-	public void put(String key, String[] values) {
-		params.put(key, values);
-	}
-	
-	public void putAll(Map<String, String[]> params) {
-		if (params == null)
-			return;
-		params.putAll(params);
-	}
-	
-	public String get(String key) {
-		String[] values = params.get(key);
-		return values.length > 0 ? values[0] : null;
-	}
-	
-	public String[] getArray(String key) {
-		return params.get(key);
-	}
+
 }
