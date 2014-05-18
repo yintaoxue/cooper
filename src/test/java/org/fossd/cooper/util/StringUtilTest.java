@@ -20,7 +20,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.ruogu.cooper.util.StringUtil;
 
-public class TestStringUtil {
+public class StringUtilTest {
 
 	@Test
 	public void testRemoveLastFieldSeparator() {
