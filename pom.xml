@@ -45,6 +45,12 @@
 			<artifactId>solr-solrj</artifactId>
 			<version>4.7.2</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>0.2.26</version>
+		</dependency>
 
 		<!-- Logging -->
 		<dependency>
