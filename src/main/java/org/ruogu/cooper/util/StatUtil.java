@@ -16,34 +16,42 @@
  */
 package org.ruogu.cooper.util;
 
-import java.util.List;
+import java.util.Date;
+
 
 public class StatUtil {
 	
-	public static String toH1(String name) {
-		String rs = "";
-		rs += "==========" + name + "==========<br>";
-		return rs;
-	}
-	
-	public static String toH2(String name) {
-		String rs = "";
-		rs += "----------" + name + "----------<br>";
-		return rs;
-	}
-	
-	public static String toHtml(String name, List<String> list) {
-		String rs = "";
-		rs += toH2(name);
-		if (list != null) {
-			for (String s : list) {
-				rs += s + "<br>";
-			}
-		} else {
-			rs += "null<br>";
+	public static String interval(Date start, Date stop) {
+		String log = "";
+		long seconds = (stop.getTime() - start.getTime()) / 1000;
+		if (seconds <= 60) {
+			log = "" + seconds + " seconds";
 		}
+		else if (seconds <= 60 * 60) {
+		    int min = (int)(seconds / 60);
+		    int rem = (int)(seconds % 60);
+           log = "" + min + " min, " + rem + " rem, " + seconds + " seconds";
+		}
+		else if (seconds <= 60 * 60 * 24) {
+		    int rem;
+            int hour = (int)(seconds / (60 * 60));
+            rem = (int)(seconds % (60 * 60)); 
+            int min = rem / 60;
+            rem = rem % 60;
+            log = "" + hour + " hour, " + min + " min, " + rem + " rem, " + seconds + " seconds";
+            }
+		else {
+            int rem;
+            int days = (int)(seconds / (60 * 60 * 24));
+            rem = (int)(seconds % (60 * 60 * 24));
+            int hour = rem / (60 * 60);
+            rem = rem % (60 * 60); 
+            int min = rem / 60;
+            rem = rem % 60;
+            log = "" + days + " days, " + hour + " hour, " + min + " min, " + rem + " rem, " + seconds + " seconds";
+            }
 		
-		return rs;
+		return log;
 	}
 	
 }
