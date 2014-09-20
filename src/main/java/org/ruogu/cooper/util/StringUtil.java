@@ -17,6 +17,9 @@
 package org.ruogu.cooper.util;
 
 public class StringUtil {
+	
+	public final static String[] NO_STRINGS = new String[0];
+	
     /**
      * <p>Remove the last field separator from the buffer.</p>
      * <p>Parameters should be not null.
