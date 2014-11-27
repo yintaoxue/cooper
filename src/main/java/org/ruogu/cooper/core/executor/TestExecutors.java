@@ -38,7 +38,6 @@ class Job implements Runnable {
 	/* 
 	 * @see java.lang.Runnable#run()
 	 */
-	@Override
 	public void run() {
 		System.out.println("job:" + name);
 	}

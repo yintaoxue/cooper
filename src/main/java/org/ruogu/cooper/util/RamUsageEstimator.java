@@ -803,19 +803,19 @@ public final class RamUsageEstimator {
       return size() == 0;
     }
 
-    @Override
+
     public Iterator<KType> iterator() {
       return new Iterator<KType>() {
         int pos = -1;
         Object nextElement = fetchNext();
 
-        @Override
+
         public boolean hasNext() {
           return nextElement != null;
         }
 
         @SuppressWarnings("unchecked")
-        @Override
+
         public KType next() {
           Object r = this.nextElement;
           if (r == null) {
@@ -834,7 +834,7 @@ public final class RamUsageEstimator {
           return (pos >= keys.length ? null : keys[pos]);
         }
 
-        @Override
+
         public void remove() {
           throw new UnsupportedOperationException();
         }
