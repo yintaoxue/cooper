@@ -12,19 +12,16 @@ import java.util.List;
 
 public class FileUtil {
 
-	public static List<String> readFile(String path) {
+	public static List<String> readFile(String fileName) {
 		List<String> result = new ArrayList<String>();
-		String webRootPath = null;
-		if (null == path || path.length() == 0) {
-			System.out.println("File path can not be null : " + path);
+		if (null == fileName || fileName.length() == 0) {
+			System.out.println("File path can not be null : " + fileName);
 			return result;
 		}
-		webRootPath = FileUtil.class.getClassLoader().getResource("").getPath();
-		webRootPath = new File(webRootPath).getParent();
+	
 		BufferedReader br = null;
 		try {
-			br = new BufferedReader(new FileReader(new File(webRootPath + File.separator + "classes" + File.separator
-					+ path)));
+			br = new BufferedReader(new FileReader(new File(fileName)));
 			
 			String line = null;
 			while((line = br.readLine()) != null) {
@@ -45,17 +42,21 @@ public class FileUtil {
 		return result;
 	}
 
-	public static void writeLine(String fullFile, String line) {
-		String webRootPath = null;
-		if (null == fullFile || fullFile.equals(""))
-			throw new IllegalArgumentException("File path can not be null : " + fullFile);
-		webRootPath = FileUtil.class.getClassLoader().getResource("").getPath();
-		webRootPath = new File(webRootPath).getParent();
+	public static void writeLine(String fileName, List<String> lines) {
+		if (null == fileName || fileName.equals(""))
+			throw new IllegalArgumentException("File path can not be null : " + fileName);
+		
+		if (lines == null) {
+			System.out.println("lines is null");
+			return;
+		}
+
 		BufferedWriter br = null;
 		try {
-			br = new BufferedWriter(new FileWriter(new File(webRootPath + File.separator + "classes" + File.separator
-					+ "data" + File.separator + fullFile)));
-			br.write(line);
+			br = new BufferedWriter(new FileWriter(new File(fileName)));
+			for (String line : lines) {
+				br.write(line + "\n");
+			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
