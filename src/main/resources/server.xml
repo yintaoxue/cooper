@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<servers>
+	<server name="server1">
+		<core name="server1core1" config="server1core1.xml" online="true"></core>
+		<core name="server1core2" config="server1core2.xml" online="false"></core>
+	</server>
+	<server name="server2">
+		<core name="server2core1" config="server2core1.xml" online="false"></core>
+		<core name="server2core2" config="server2core2.xml" online="true"></core>
+	</server>
+</servers>

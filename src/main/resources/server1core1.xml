@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<core>
+
+	<coreType>solrcore</coreType>
+	<url>http://localhost:8080/solr/core0</url>
+	
+	<params>
+		<maxRetries>1</maxRetries>
+
+		<!-- Timeout in milliseconds, time to establish TCP A timeout value of 
+			zero is interpreted as an infinite timeout. -->
+		<connectionTimeout>30000</connectionTimeout>
+
+		<!-- Set SoTimeout (read timeout). This is desirable for queries, but probably 
+			not for indexing. Timeout in milliseconds -->
+		<soTimeout>30000</soTimeout>
+
+		<!-- Set the maximum number of connections that can be open to a single 
+			host at any given time. If http client was created outside the operation 
+			is not allowed. -->
+		<defaultMaxConnectionsPerHost>1000</defaultMaxConnectionsPerHost>
+
+		<!-- Set the maximum number of connections that can be open at any given 
+			time. If http client was created outside the operation is not allowed. -->
+		<maxTotalConnections>5000</maxTotalConnections>
+
+		<!-- Configure whether the client should follow redirects or not. This 
+			defaults to false under the assumption that if you are following a redirect 
+			to get to a Solr installation, something is misconfigured somewhere. defaults 
+			to false -->
+		<followRedirects>false</followRedirects>
+
+		<!-- allowCompression defaults to false. Server side must support gzip 
+			or deflate for this to have any effect. Allow server->client communication 
+			to be compressed. Currently gzip and deflate are supported. If the server 
+			supports compression the response will be compressed. This method is only 
+			allowed if the http client is of type DefatulHttpClient. -->
+		<allowCompression>true</allowCompression>
+	</params>
+</core>
