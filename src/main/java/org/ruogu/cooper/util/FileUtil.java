@@ -70,4 +70,33 @@ public class FileUtil {
 			}
 		}
 	}
+	
+	public static void writeLine(String fileName, List<String> lines, boolean append) {
+		if (null == fileName || fileName.equals(""))
+			throw new IllegalArgumentException("File path can not be null : " + fileName);
+		
+		if (lines == null) {
+			System.out.println("lines is null");
+			return;
+		}
+
+		BufferedWriter br = null;
+		try {
+			br = new BufferedWriter(new FileWriter(new File(fileName), append));
+			for (String line : lines) {
+				br.write(line + "\n");
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (br != null)
+					br.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }
