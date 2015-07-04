@@ -1,7 +1,9 @@
 package org.ruogu.cooper.core.executor;
 
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * TestExecutors
@@ -16,7 +18,7 @@ public class TestExecutors {
 	public static void main(String[] args) {
 		int poolSize = 2;
 		ExecutorService pool = Executors.newFixedThreadPool(poolSize);
-		for (int i = 0; i < poolSize; i++) {
+		for (int i = 0; i < 50; i++) {
 			Job job = new Job("job" + i);
 			pool.execute(job);
 		}
